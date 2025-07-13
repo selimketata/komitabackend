@@ -22,7 +22,20 @@ SET row_security = off;
 SELECT pg_catalog.lo_create(0);
 
 
-ALTER LARGE OBJECT 55546 OWNER TO postgres;
+DO $$
+DECLARE
+    exists boolean;
+BEGIN
+    SELECT EXISTS (
+        SELECT 1 FROM pg_largeobject_metadata WHERE loid = 55546
+    ) INTO exists;
+
+    IF exists THEN
+        EXECUTE 'ALTER LARGE OBJECT 55546 OWNER TO postgres';
+    END IF;
+END
+$$;
+
 
 --
 -- Name: 55737; Type: BLOB; Schema: -; Owner: postgres
@@ -31,7 +44,19 @@ ALTER LARGE OBJECT 55546 OWNER TO postgres;
 SELECT pg_catalog.lo_create(0);
 
 
-ALTER LARGE OBJECT 55737 OWNER TO postgres;
+DO $$
+DECLARE
+    exists boolean;
+BEGIN
+    SELECT EXISTS (
+        SELECT 1 FROM pg_largeobject_metadata WHERE loid = 55737
+    ) INTO exists;
+
+    IF exists THEN
+        EXECUTE 'ALTER LARGE OBJECT 55737 OWNER TO postgres';
+    END IF;
+END
+$$;
 
 --
 -- Name: 55738; Type: BLOB; Schema: -; Owner: postgres
@@ -39,8 +64,19 @@ ALTER LARGE OBJECT 55737 OWNER TO postgres;
 
 SELECT pg_catalog.lo_create(0);
 
+DO $$
+DECLARE
+    exists boolean;
+BEGIN
+    SELECT EXISTS (
+        SELECT 1 FROM pg_largeobject_metadata WHERE loid = 55738
+    ) INTO exists;
 
-ALTER LARGE OBJECT 55738 OWNER TO postgres;
+    IF exists THEN
+        EXECUTE 'ALTER LARGE OBJECT 55738 OWNER TO postgres';
+    END IF;
+END
+$$;
 
 --
 -- Name: 56206; Type: BLOB; Schema: -; Owner: postgres
@@ -48,8 +84,19 @@ ALTER LARGE OBJECT 55738 OWNER TO postgres;
 
 SELECT pg_catalog.lo_create(0);
 
+DO $$
+DECLARE
+    exists boolean;
+BEGIN
+    SELECT EXISTS (
+        SELECT 1 FROM pg_largeobject_metadata WHERE loid = 56206
+    ) INTO exists;
 
-ALTER LARGE OBJECT 56206 OWNER TO postgres;
+    IF exists THEN
+        EXECUTE 'ALTER LARGE OBJECT 56206 OWNER TO postgres';
+    END IF;
+END
+$$;
 
 --
 -- Data for Name: adress; Type: TABLE DATA; Schema: public; Owner: postgres
